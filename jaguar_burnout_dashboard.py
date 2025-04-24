@@ -23,7 +23,7 @@ with tab1:
     predicted_rate = data.loc[data['Employee_ID'] == employee_id, 'Predicted_Burn_Rate'].values[0]
     st.metric(label=f"Predicted Burn Rate for {employee_id}", value=f"{predicted_rate:.2f}")
     
-     if predicted_rate <= 0.45:
+    if predicted_rate <= 0.45:
         st.success("✅ You should be good. No signs of burnout.")
     elif 0.45 < predicted_rate <= 0.65:
         st.warning("⚠️ Watch out. This employee may be at risk.")
