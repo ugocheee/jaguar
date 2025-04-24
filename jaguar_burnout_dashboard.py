@@ -22,6 +22,16 @@ with tab1:
     employee_id = st.selectbox("Select Employee ID:", sorted(data['Employee_ID'].unique()))
     predicted_rate = data.loc[data['Employee_ID'] == employee_id, 'Predicted_Burn_Rate'].values[0]
     st.metric(label=f"Predicted Burn Rate for {employee_id}", value=f"{predicted_rate:.2f}")
+    
+     if predicted_rate <= 0.45:
+        st.success("✅ You should be good. No signs of burnout.")
+    elif 0.45 < predicted_rate <= 0.65:
+        st.warning("⚠️ Watch out. This employee may be at risk.")
+    else:
+        st.error("🚨 Take action today. This employee is likely burned out.")
+
+    st.markdown("""---
+##### Jaguar by Ugochi""")
 
     st.markdown("### 📊 Burn Rate Distribution")
     st.bar_chart(data.set_index('Employee_ID')['Predicted_Burn_Rate'])
