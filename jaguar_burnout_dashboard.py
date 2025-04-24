@@ -30,11 +30,12 @@ with tab1:
     else:
         st.error("🚨 Take action today. This employee is likely burned out.")
 
-    st.markdown("""---
-##### Jaguar by Ugochi""")
 
     st.markdown("### 📊 Burn Rate Distribution")
     st.bar_chart(data.set_index('Employee_ID')['Predicted_Burn_Rate'])
+
+    st.markdown("""---
+##### Jaguar by Ugochi""")
 
 # --- TAB 2: WHAT-IF SIMULATION ---
 with tab2:
